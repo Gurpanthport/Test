@@ -1,3 +1,2 @@
-# COMP2068-Week8
-
-Repo for Advanced Web Programming - Authentication @ GeorgianCollege
+Star Survey
+Version 1.0
