@@ -7,10 +7,11 @@
             <form method="post">
 </form>
         <!-- panel-heading -->
+        <% if (users.length > 0) { %>
 
 
-
-            <h1>Welcome</h1>
+                    <% for (var i = 0; i < users.length; i++) { %>
+            <h1>Welcome, <%= users[i].displayName.toUpperCase() %></h1>
             <form method="post">
                 <fieldset class="form-group">
                     <label for="surveyTopic">Survey Topic*</label>
