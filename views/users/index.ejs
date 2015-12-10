@@ -4,25 +4,20 @@
     <div class="col-sm-6">
     <h1>Users</h1>
         <div class="col-sm-20">
-            <form method="post">
-</form>
+
         <!-- panel-heading -->
-        <% if (users.length > 0) { %>
-
-
-                    <% for (var i = 0; i < users.length; i++) { %>
-            <h1>Welcome, <%= users[i].displayName.toUpperCase() %></h1>
+            <h1>Welcome,  <%= displayName.toUpperCase() %></h1>
             <form method="post">
                 <fieldset class="form-group">
                     <label for="surveyTopic">Survey Topic*</label>
                     <input name="surveyTopic" type="text" class="form-control" required autofocus />
                 </fieldset>
                 <fieldset>
-                <div class="radioButtons">
-                    <label for="">Choose template*</label><br>
-                    <label class="radio-inline"><input type="radio" name="optradio">Multiple choice question</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">Content survey</label><br>
-                </div>
+                    <div class="radioButtons">
+                        <label for="">Choose template*</label><br>
+                        <label class="radio-inline"><input type="radio" name="optradio">Multiple choice question</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Content survey</label><br>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <label for="">Survey lifetime</label><br>
@@ -45,11 +40,12 @@
                     <input type="submit" class="btn btn-success" value="Submit"/>
                 </fieldset>
             </form>
+
             </div>
 </div>
-                    <% } %>
+
         </div> <!-- panel-body -->
-        <% } %>
+
     </div><!-- panel panel-default -->
 
 </main>
