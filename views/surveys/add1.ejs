@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+
+<main class="container">
+    <h1 style="padding: 35px;">Add a New Survey</h1>
+    <div class="col-sm-4">
+        <form method="post">
+            <fieldset class="form-group">
+                <label for="surveyQuestion">Survey Question*</label>
+                <input name="surveyQuestion" type="text" class="form-control" required autofocus />
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="content">Content</label>
+                 <textarea class="form-group" name="content" style="height: 50px; width: 300px; ">
+                              </textarea>
+            </fieldset>
+
+
+            <fieldset class="form-group text-right">
+                <input type="submit" class="btn btn-success" value="Submit"/>
+            </fieldset>
+        </form>
+    </div>
+
+</main>
+
+<% include ../partials/footer.ejs %>

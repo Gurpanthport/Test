@@ -56,6 +56,15 @@ router.get('/add', requireAuth, function (req, res, next) {
     });
 });
 
+
+/* Render the Add1 Users Page */
+router.get('/add1', requireAuth, function (req, res, next) {
+    res.render('surveys/add1', {
+        title: 'Surveys',
+        displayName: req.user ? req.user.displayName : ''
+    });
+});
+
 /* process the submission of a new user */
 router.post('/add', requireAuth, function (req, res, next) {
     var survey = new Survey(req.body);
@@ -135,6 +144,7 @@ router.get('/delete/:id', requireAuth, function (req, res, next) {
         }
     });
 });
+
 
 
 module.exports = router;
