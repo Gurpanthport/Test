@@ -1,54 +1,53 @@
 <% include ../partials/header.ejs %>
 
 <main class="container">
+    <div class="col-sm-6">
     <h1>Users</h1>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <a href="/users/add" title="Add User"><i class="fa fa-plus-circle"></i> Add a new User</a>
-        </div> <!-- panel-heading -->
+        <div class="col-sm-20">
+            <form method="post">
+</form>
+        <!-- panel-heading -->
         <% if (users.length > 0) { %>
-        <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Email</th>
-                        <th>Date Created</th>
-                        <th>Date Updated</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                </tbody>
-                <% for (var i = 0; i < users.length; i++) { %>
-                <tr>
-                    <td>
-                        <%= users[i].displayName %>
-                    </td>
-                    <td>
-                        <%= users[i].email %>
-                    </td>
-                    <td>
-                        <% var date = new Date(users[i].created);
-                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
-                        <%= dateString %>
-                    </td>
-                    <td>
-                        <% date = new Date(users[i].updated);
-                         var dateString = date.toDateString() + " " + date.toLocaleTimeString(); %>
-                        <%= dateString %>
-                    </td>
-                    <td>
-                        <a href="/users/<%= users[i]._id %>" title="Edit" class="btn btn-primary">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                        <a href="/users/delete/<%= users[i]._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                    </td>   
-                </tr>
-                <% } %>
-                </tbody>
-            </table>
+
+
+                    <% for (var i = 0; i < users.length; i++) { %>
+            <h1>Welcome, <%= users[i].displayName.toUpperCase() %></h1>
+            <form method="post">
+                <fieldset class="form-group">
+                    <label for="surveyTopic">Survey Topic*</label>
+                    <input name="surveyTopic" type="text" class="form-control" required autofocus />
+                </fieldset>
+                <fieldset>
+                <div class="radioButtons">
+                    <label for="">Choose template*</label><br>
+                    <label class="radio-inline"><input type="radio" name="optradio">Multiple choice question</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Content survey</label><br>
+                </div>
+                </fieldset>
+                <fieldset>
+                    <label for="">Survey lifetime</label><br>
+                    <div class="input-group input-daterange">
+                        <input type="date" class="form-control">
+                        <span class="input-group-addon">to</span>
+                        <input type="date" class="form-control">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="noQuestions">No. of questions:</label>
+                    <select class="form-control" id="sel1">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+
+                    </select>
+                </fieldset>
+                <fieldset class="form-group text-right">
+                    <input type="submit" class="btn btn-success" value="Submit"/>
+                </fieldset>
+            </form>
+            </div>
+</div>
+                    <% } %>
         </div> <!-- panel-body -->
         <% } %>
     </div><!-- panel panel-default -->
