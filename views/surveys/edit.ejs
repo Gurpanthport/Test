@@ -1,23 +1,30 @@
 <% include ../partials/header.ejs %>
 <main class="container">
-    <h1 style="padding: 35px;">>Edit a User</h1>
+    <h1 style="padding: 35px;">Edit the survey</h1>
     <div class="col-sm-4">
         <form method="post">
             <fieldset class="form-group">
-                <label for="businessEmail">Business Email: *</label>
-                <input name="businessEmail" type="email" class="form-control" required value="<%= contact.businessEmail %>" autofocus />
+                <label for="surveyTopic">Survey Topic*</label>
+                <input name="surveyTopic" type="text" class="form-control" requiredvalue="<%= survey.surveyTopic %>" autofocus/>
             </fieldset>
             <fieldset class="form-group">
-                <label for="businessName">Username: *</label>
-                <input name="businessName" type="text" class="form-control" required value="<%= contact.businessName %>" />
+                <label for="surveyQuestion">Survey Question *</label>
+                <input name="surveyQuestion" type="text" class="form-control" required value="<%= survey.surveyQuestion %>" autofocus />
             </fieldset>
+
+            <div class="radioButtons" style="padding:15px;">
+                <label class="radio-inline"><input type="radio" name="optradio"> <input name="surveyOption1" type="text" class="form-control" value="<%= survey.surveyOption1 %>" required /></label><br>
+                <label class="radio-inline"><input type="radio" name="optradio"> <input name="surveyOption2" type="text" class="form-control" value="<%= survey.surveyOption2 %>" required /></label><br>
+                <label class="radio-inline"><input type="radio" name="optradio"> <input name="surveyOption3" type="text" class="form-control" value="<%= survey.surveyOption3 %>" required /></label><br>
+                <label class="radio-inline"><input type="radio" name="optradio"> <input name="surveyOption4" type="text" class="form-control" value="<%= survey.surveyOption4 %>" required /></label>
+            </div>
             <fieldset class="form-group text-right">
                 <button type="submit" class="btn btn-primary" title="Update">
                     <i class="fa fa-pencil-square-o"></i> Update</button>
-                <a href="/contacts/delete/<%= contact._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">
+                <a href="/surveys/delete/<%= survey._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">
                     <i class="fa fa-trash-o"></i> Delete
                 </a>
-                <a href="/contacts" title="Cancel"  class="btn btn-default">
+                <a href="/surveys" title="Cancel"  class="btn btn-default">
                     <i class="fa fa-undo"></i>  Cancel
                 </a>
             </fieldset>
