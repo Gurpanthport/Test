@@ -128,8 +128,9 @@ body {
 /********************************************************/
 /*                      Typography                      */
 /********************************************************/
-a { color: black; text-decoration: none; }
-a:hover, a:active { color:#fff; text-decoration: underline; }
+a { color: black; text-decoration: none;
+	font-family:Helvetica, Arial, sans-serif;}
+a:hover, a:active { color:#505D6E; text-decoration: none; }
 .lead { 
 	font-weight:normal;
 	font-size:1.5em;
