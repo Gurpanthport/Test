@@ -1,13 +1,21 @@
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
-
+var Survey = require('../models/survey');
 var User = require('../models/user');
 
 /* Render home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {
         title: 'Home',
+        displayName: req.user ? req.user.displayName : ''
+    });
+});
+
+/* Render guest to survey page. */
+router.get('/guest', function (req, res, next) {
+    res.render('guest', {
+        title: 'Guest Surveys',
         displayName: req.user ? req.user.displayName : ''
     });
 });
@@ -69,5 +77,26 @@ router.get('/logout', function (req, res){
   req.logout();
   res.redirect('/');
 });
+
+/*
+Guest
+ */
+/* Render Users main page. */
+router.get('/guest', function (req, res, next) {
+    Survey.find(function (err, surveys) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            res.render('/guest', {
+                title: 'Users',
+                surveys: surveys,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
 
 module.exports = router;

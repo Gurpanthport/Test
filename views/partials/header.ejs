@@ -31,7 +31,10 @@
       <% } else { %>
     <li>
       <% } %>
-      <a href="/">Home</a></li>
+      <a href="/">Home</a>
+    </li>
+    <li><a href="/surveys">Surveys</a></li>
+    <li><a href="/guest">Guest Surveys</a></li>
     <li role="presentation" class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="/surveys" role="button" aria-haspopup="true" aria-expanded="false">
         Survey <span class="caret"></span>
@@ -41,7 +44,7 @@
         <a href="/surveys/add1"><li>Template 2</li></a>
       </ul>
     </li>
-    <li role="presentation"><a href="/surveys">Surveys</a> </li>
+    <li role="presentation"><a href="/surveys">User Surveys</a> </li>
     <li role="separator" class="divider"></li>
     <% if (displayName) { %>
     <% if(title == "users" ) { %>

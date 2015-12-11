@@ -31,17 +31,21 @@ router.get('/', requireAuth, function (req, res, next) {
     });
 });
 
-/* Render Users main page. */
+/* Render the User Edit Page */
 router.get('/live/:id', requireAuth, function (req, res, next) {
-    Survey.find(function (err, surveys) {
+    // create an id variable
+    var id = req.params.id;
+    // use mongoose and our model to find the right user
+    Survey.findById(id, function (err, survey) {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
+            //show the edit view
             res.render('surveys/live', {
                 title: 'Surveys',
-                surveys: surveys,
+                survey: survey,
                 displayName: req.user ? req.user.displayName : ''
             });
         }
@@ -111,25 +115,6 @@ router.get('/:id', requireAuth, function (req, res, next) {
     });
 });
 
-/* process the edit form submission */
-router.post('/:id', requireAuth, function (req, res, next) {
-    var id = req.params.id;
-    var contact = new Survey(req.body);
-
-    Survey._id = id;
-    Survey.updated = Date.now();
-
-    // use mongoose to do the update
-    Survey.update({ _id: id }, contact, function (err) {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.redirect('/surveys');
-        }
-    });
-});
 
 /* run delete on the selected user */
 router.get('/delete/:id', requireAuth, function (req, res, next) {
