@@ -1,3 +1,3 @@
-# COMP2068-Week8
+StarSurvey
 
-Repo for Advanced Web Programming - Authentication @ GeorgianCollege
+Version 1.0
