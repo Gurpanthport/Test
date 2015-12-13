@@ -80,6 +80,10 @@ router.post('/add', requireAuth, function (req, res, next) {
         surveyOption2: req.body.surveyOption2,
         surveyOption3: req.body.surveyOption3,
         surveyOption4: req.body.surveyOption4,
+        optradio1: req.body.optradio1,
+        optradio2: req.body.optradio2,
+        optradio3: req.body.optradio3,
+        optradio4: req.body.optradio4,
         provider: 'local',
         created: Date.now(),
         updated: Date.now()

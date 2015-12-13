@@ -13,10 +13,40 @@
             </fieldset>
 
             <div class="radioButtons" style="padding:15px;">
-                <label class="radio-inline"><input type="radio" name="optradio"><%= survey.surveyOption1 %></label><br>
-                <label class="radio-inline"><input type="radio" name="optradio"> <%= survey.surveyOption2 %></label><br>
-                <label class="radio-inline"><input type="radio" name="optradio"><%= survey.surveyOption3 %></label><br>
-                <label class="radio-inline"><input type="radio" name="optradio"><%= survey.surveyOption4 %></label>
+                <label class="radio-inline">
+                    <% if(survey.optradio1 == "on" ) { %>
+                    <input type="radio" checked><%= survey.surveyOption1 %>
+                        <% } else { %>
+                    <input type="radio"><%= survey.surveyOption1 %>
+                    </label>
+                        <% } %>
+
+                <!--2nd-->
+                <label class="radio-inline">
+                    <% if(survey.optradio2 == "on" ) { %>
+                    <input type="radio" checked><%= survey.surveyOption2 %>
+                    <% } else { %>
+                    <input type="radio"><%= survey.surveyOption2 %>
+                </label>
+                <% } %>
+
+                <!--3rd-->
+                <label class="radio-inline">
+                    <% if(survey.optradio3 == "on" ) { %>
+                    <input type="radio" checked><%= survey.surveyOption3 %>
+                    <% } else { %>
+                    <input type="radio"><%= survey.surveyOption3 %>
+                </label>
+                <% } %>
+                <!--4th-->
+                <label class="radio-inline">
+                    <% if(survey.optradio4 == "on" ) { %>
+                    <input type="radio" checked><%= survey.surveyOption4 %>
+                    <% } else { %>
+                    <input type="radio"><%= survey.surveyOption4 %>
+                </label>
+                <% } %>
+
             </div>
             <fieldset class="form-group text-right">
                 <button type="submit" class="btn btn-primary" title="Update">
