@@ -78,5 +78,25 @@ router.get('/logout', function (req, res){
   res.redirect('/');
 });
 
+/*
+Guest
+ */
+/* Render Users main page. */
+router.get('/guest', function (req, res, next) {
+    Survey.find(function (err, surveys) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            res.render('/guest', {
+                title: 'Users',
+                surveys: surveys,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
 
 module.exports = router;
