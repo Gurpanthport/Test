@@ -24,6 +24,7 @@ mongoose.connection.on('error', function() {
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var surveys = require('./routes/survey');
+var guests = require('./routes/guest');
 var app = express();
 
 require('./config/passport')(passport);
@@ -55,7 +56,7 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/surveys', surveys);
 app.use('/users', users);
-
+app.use('/guests', guests);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
