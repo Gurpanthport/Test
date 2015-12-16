@@ -17,7 +17,7 @@
                     <% if(survey.optradio1 == "on" ) { %>
                     <input type="radio" checked><%= survey.surveyOption1 %>
                         <% } else { %>
-                    <input type="radio"><%= survey.surveyOption1 %>
+                    <input type="radio" disabled><%= survey.surveyOption1 %>
                     </label>
                         <% } %>
 
@@ -26,7 +26,7 @@
                     <% if(survey.optradio2 == "on" ) { %>
                     <input type="radio" checked><%= survey.surveyOption2 %>
                     <% } else { %>
-                    <input type="radio"><%= survey.surveyOption2 %>
+                    <input type="radio" disabled><%= survey.surveyOption2 %>
                 </label>
                 <% } %>
 
@@ -35,7 +35,7 @@
                     <% if(survey.optradio3 == "on" ) { %>
                     <input type="radio" checked><%= survey.surveyOption3 %>
                     <% } else { %>
-                    <input type="radio"><%= survey.surveyOption3 %>
+                    <input type="radio" disabled><%= survey.surveyOption3 %>
                 </label>
                 <% } %>
                 <!--4th-->
@@ -43,7 +43,7 @@
                     <% if(survey.optradio4 == "on" ) { %>
                     <input type="radio" checked><%= survey.surveyOption4 %>
                     <% } else { %>
-                    <input type="radio"><%= survey.surveyOption4 %>
+                    <input type="radio" disabled><%= survey.surveyOption4 %>
                 </label>
                 <% } %>
 
@@ -59,6 +59,7 @@
                 </a>
             </fieldset>
         </form>
+
     </div>
 
 </main>

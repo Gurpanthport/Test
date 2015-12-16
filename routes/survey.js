@@ -119,6 +119,24 @@ router.get('/:id', requireAuth, function (req, res, next) {
     });
 });
 
+/* process the edit form submission */
+router.post('/:id', requireAuth, function (req, res, next) {
+    var id = req.params.id;
+    var survey = new Survey(req.body);
+    survey._id = id;
+    survey.updated = Date.now();
+
+    // use mongoose to do the update
+    Survey.update({ _id: id }, survey, function (err) {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            res.redirect('/surveys');
+        }
+    });
+});
 
 /* run delete on the selected user */
 router.get('/delete/:id', requireAuth, function (req, res, next) {
